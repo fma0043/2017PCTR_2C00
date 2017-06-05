@@ -35,10 +35,18 @@ public class Club {
 		
 	}
 
-	public static Club obtenerClub(int numPelotas, int numPalos) {
-		// TODO Auto-generated method stub
-		return null;
+	/**
+	 * Singleton Club.
+	 * 
+	 * @return club
+	 */
+	public static Club obtenerClub(int pelotas, int palos) {
+		if (club == null) {
+			club = new Club(pelotas, palos);
+		}
+		return club;
 	}
+
 
 	public ArrayList<Jugador> getJugadores() {
 		// TODO Auto-generated method stub
