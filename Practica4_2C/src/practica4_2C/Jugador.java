@@ -42,7 +42,10 @@ public class Jugador implements Runnable {
 			ident += "-";
 		}
 	}
-
+	
+	/**
+	 * Metodo run para los hilos de entrada.
+	 */
 	@Override
 	public void run() {
 		int pelotas, palos, i, tiempo;
