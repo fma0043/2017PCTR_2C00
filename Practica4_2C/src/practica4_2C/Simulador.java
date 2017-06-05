@@ -9,11 +9,11 @@ import java.util.ArrayList;
  */
 public class Simulador {
 
-	private static final int NUM_EXPERTOS = 3;
-	private static final int NUM_NOVATOS = 3;
+	private static final int NUM_EXPERTOS = 7;
+	private static final int NUM_NOVATOS = 7;
 	private static final int NUM_PELOTAS = 10;
 	private static final int NUM_PALOS = 10;
-	private static final int NUM_VUELTAS = 2;
+	private static final int NUM_VUELTAS = 5;
 
 	/**
 	 * Metodo main.
