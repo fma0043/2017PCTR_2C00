@@ -11,7 +11,9 @@ import java.lang.Runnable;
  */
 public class Jugador implements Runnable {
 
-	private int  vueltas, pelotasActuales, palosActuales;
+	private int  vueltas;
+	int pelotasActuales;
+	int palosActuales;
 	String ident;
 	private Club club;
 	private boolean experto;

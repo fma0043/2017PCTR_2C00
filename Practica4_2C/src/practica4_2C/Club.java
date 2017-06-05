@@ -48,7 +48,8 @@ public class Club {
 		palosActuales = palosActuales - palos;
 		acceso = false;
 		notifyAll();
-
+		invariantePalos(palos);
+		invariantePelotas(pelotas);
 	}
 
 	/**
@@ -67,6 +68,8 @@ public class Club {
 		palosActuales = palosActuales + palos;
 		acceso = false;
 		notifyAll();
+		invariantePalos(palos);
+		invariantePelotas(pelotas);
 	}
 
 
@@ -83,20 +86,27 @@ public class Club {
 	}
 	
 	/**
-	 * Metodo invariante, pars los objetos pasivos.
+	 * Metodo invariante para las pelotas, para los objetos pasivos.
 	 */
-	/*public static void invariante() {
-		int sumaPalos = 0;
+	public static void invariantePelotas(int pelotasActuales) {
 		int sumaPelotas = 0;
 		for (Jugador p : jugadores) {
-			sumaPalos += ;
-			sumaPelotas+= ;
+			sumaPelotas+=p.pelotasActuales ;
 		}
-		assert sumaPalos == ;
-		assert sumaPelotas == ;
+		assert sumaPelotas == pelotasActuales;
 		}
-	*/
 
+	/**
+	 * Metodo invariante para los palos, para los objetos pasivos.
+	 */
+	public static void invariantePalos(int palosActuales) {
+		int sumaPalos = 0;
+		for (Jugador p : jugadores) {
+			sumaPalos+=p.palosActuales ;
+		}
+		assert sumaPalos == palosActuales;
+		}
+	
 	/**
 	 * getJugadores.ArrayList de jugador para mostrar los jugadores.
 	 * 
