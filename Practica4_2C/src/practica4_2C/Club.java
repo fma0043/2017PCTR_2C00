@@ -55,4 +55,24 @@ public class Club {
 		return jugadores;
 	}
 
+	/**
+	 * setJugadores.método para añadir jugadores y diferenciarlos en expertos o
+	 * novatos.
+	 * 
+	 * @param expertos
+	 * @param novatos
+	 * @param veces
+	 */
+	public void setJugadores(int expertos, int novatos, int veces) {
+		boolean exp = false;
+		for (int i = 1; i <= expertos + novatos; i++) {
+			if (i <= expertos) {
+				exp = true;
+			} else {
+				exp = false;
+			}
+			jugadores.add(new Jugador(i, exp, veces, club));
+		}
+	}
+
 }
