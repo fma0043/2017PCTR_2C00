@@ -51,10 +51,24 @@ public class Club {
 
 	}
 
-	public void devolver(int pelotasActuales, int palosActuales) {
-		// TODO Auto-generated method stub
-
+	/**
+	 * Método sincronizado devolver.
+	 * 
+	 * @param pelotasActuales
+	 * @param palosActuales
+	 * @throws InterruptedException
+	 */
+	public synchronized void devolver(int pelotas, int palos) throws InterruptedException {
+		while (acceso) {
+			wait();
+		}
+		acceso = true;
+		pelotasActuales = pelotasActuales + pelotas;
+		palosActuales = palosActuales + palos;
+		acceso = false;
+		notifyAll();
 	}
+
 
 	/**
 	 * Singleton Club.

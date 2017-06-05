@@ -78,7 +78,11 @@ public class Jugador implements Runnable {
 
 			System.out.println(this.ident + "[" + pelotasActuales + "," + palosActuales + "] devuelve y tengo "
 					+ pelotasActuales + " y " + palosActuales);
-			club.devolver(pelotasActuales, palosActuales);
+			try {
+				club.devolver(pelotasActuales, palosActuales);
+			} catch (InterruptedException e1) {
+				e1.printStackTrace();
+			}
 			pelotasActuales -= pelotasActuales;
 			palosActuales -= palosActuales;
 
