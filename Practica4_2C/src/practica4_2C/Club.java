@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @author Félix Movilla Alonso.
  */
 public class Club {
-	
+
 	private int pelotasActuales;
 	private int palosActuales;
 	private boolean acceso;
@@ -24,15 +24,14 @@ public class Club {
 		this.acceso = false;
 	}
 
-
 	public void reservar(int pelotas, int palos) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void devolver(int pelotasActuales, int palosActuales) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	/**
@@ -47,12 +46,13 @@ public class Club {
 		return club;
 	}
 
-
+	/**
+	 * getJugadores.ArrayList de jugador para mostrar los jugadores.
+	 * 
+	 * @return jugadores
+	 */
 	public ArrayList<Jugador> getJugadores() {
-		// TODO Auto-generated method stub
-		return null;
+		return jugadores;
 	}
-
-
 
 }
