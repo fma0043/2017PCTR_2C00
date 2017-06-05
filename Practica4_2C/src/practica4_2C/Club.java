@@ -81,6 +81,21 @@ public class Club {
 		}
 		return club;
 	}
+	
+	/**
+	 * Metodo invariante, pars los objetos pasivos.
+	 */
+	/*public static void invariante() {
+		int sumaPalos = 0;
+		int sumaPelotas = 0;
+		for (Jugador p : jugadores) {
+			sumaPalos += ;
+			sumaPelotas+= ;
+		}
+		assert sumaPalos == ;
+		assert sumaPelotas == ;
+		}
+	*/
 
 	/**
 	 * getJugadores.ArrayList de jugador para mostrar los jugadores.

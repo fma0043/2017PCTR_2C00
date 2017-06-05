@@ -1,7 +1,7 @@
 package practica4_2C;
 
-import java.lang.Runnable;
 import java.util.concurrent.ThreadLocalRandom;
+import java.lang.Runnable;
 
 /**
  * Clase Hilo, que implementa la interfaz Runnable.
@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class Jugador implements Runnable {
 
-	private int vueltas, pelotasActuales, palosActuales;
+	private int  vueltas, pelotasActuales, palosActuales;
 	String ident;
 	private Club club;
 	private boolean experto;
@@ -42,7 +42,7 @@ public class Jugador implements Runnable {
 			ident += "-";
 		}
 	}
-	
+
 	/**
 	 * Metodo run para los hilos de entrada.
 	 */
@@ -57,18 +57,17 @@ public class Jugador implements Runnable {
 			palos = 2;
 		}
 		for (i = 0; i < vueltas; i++) {
-			System.out.println(this.ident + "[" + pelotas + "," + palos + "] reserva y tengo " + pelotasActuales + " y "
-					+ palosActuales);
+			System.out.println(this.ident + "[" + pelotas + "," + palos + "] reserva");
 			try {
 				club.reservar(pelotas, palos);
+				pelotasActuales += pelotas;
+				palosActuales += palos;
 			} catch (InterruptedException e1) {
 				e1.printStackTrace();
 			}
-			pelotasActuales += pelotas;
-			palosActuales += palos;
 
-			System.out.println(this.ident + "[" + pelotasActuales + "," + palosActuales + "] juega y tengo "
-					+ pelotasActuales + " y " + palosActuales);
+
+			System.out.println(this.ident + "[" + pelotasActuales + "," + palosActuales + "] juega");
 			tiempo = ThreadLocalRandom.current().nextInt(1, 1000);
 			try {
 				Thread.sleep(tiempo);
@@ -76,18 +75,16 @@ public class Jugador implements Runnable {
 				e.printStackTrace();
 			}
 
-			System.out.println(this.ident + "[" + pelotasActuales + "," + palosActuales + "] devuelve y tengo "
-					+ pelotasActuales + " y " + palosActuales);
+			System.out.println(this.ident + "[" + pelotasActuales + "," + palosActuales + "] devuelve");
 			try {
 				club.devolver(pelotasActuales, palosActuales);
+				pelotasActuales -= pelotasActuales;
+				palosActuales -= palosActuales;
 			} catch (InterruptedException e1) {
 				e1.printStackTrace();
 			}
-			pelotasActuales -= pelotasActuales;
-			palosActuales -= palosActuales;
 
-			System.out.println(this.ident + "[" + pelotas + "," + palos + "] descansa y tengo " + pelotasActuales
-					+ " y " + palosActuales);
+			System.out.println(this.ident + "[" + pelotas + "," + palos + "] descansa");
 			tiempo = ThreadLocalRandom.current().nextInt(1, 1000);
 			try {
 				Thread.sleep(tiempo);

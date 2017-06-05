@@ -24,8 +24,10 @@ public class Simulador {
 	 */
 	public static void main(String[] args) {
 
+
 		Club club = Club.obtenerClub(NUM_PELOTAS, NUM_PALOS);
 
+		club.setJugadores(NUM_EXPERTOS, NUM_NOVATOS, NUM_VUELTAS);
 		ArrayList<Thread> hilos = new ArrayList<Thread>();
 
 		ArrayList<Jugador> jugadores = club.getJugadores();
