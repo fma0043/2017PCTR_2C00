@@ -59,7 +59,11 @@ public class Jugador implements Runnable {
 		for (i = 0; i < vueltas; i++) {
 			System.out.println(this.ident + "[" + pelotas + "," + palos + "] reserva y tengo " + pelotasActuales + " y "
 					+ palosActuales);
-			//club.reservar(pelotas, palos);
+			try {
+				club.reservar(pelotas, palos);
+			} catch (InterruptedException e1) {
+				e1.printStackTrace();
+			}
 			pelotasActuales += pelotas;
 			palosActuales += palos;
 
@@ -74,7 +78,7 @@ public class Jugador implements Runnable {
 
 			System.out.println(this.ident + "[" + pelotasActuales + "," + palosActuales + "] devuelve y tengo "
 					+ pelotasActuales + " y " + palosActuales);
-			//club.devolver(pelotasActuales, palosActuales);
+			club.devolver(pelotasActuales, palosActuales);
 			pelotasActuales -= pelotasActuales;
 			palosActuales -= palosActuales;
 

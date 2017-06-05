@@ -24,8 +24,30 @@ public class Club {
 		this.acceso = false;
 	}
 
-	public void reservar(int pelotas, int palos) {
-		// TODO Auto-generated method stub
+	/**
+	 * Método sincronizado reservar.
+	 * 
+	 * @param pelotas
+	 * @param palos
+	 * @throws InterruptedException
+	 */
+
+	public synchronized void reservar(int pelotas, int palos) throws InterruptedException {
+		while (acceso) {
+			wait();
+		}
+		acceso = true;
+		while (pelotas > pelotasActuales || palos > palosActuales) {
+			acceso = false;
+			// System.err.println("no hay material para mi, esperando " +
+			// pelotas+ "pelotas "+palos+" palos ");
+			wait();
+			acceso = true;
+		}
+		pelotasActuales = pelotasActuales - pelotas;
+		palosActuales = palosActuales - palos;
+		acceso = false;
+		notifyAll();
 
 	}
 
